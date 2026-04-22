@@ -1,0 +1,103 @@
+{{ 'portfolio-collection-hover-widget.css' | asset_url | stylesheet_tag }}
+
+<section class="portfolio-hover-section color-{{ section.settings.color_scheme }}" data-test="page-section">
+  <div class="portfolio-hover-wrapper page-width">
+    <ul class="portfolio-hover-list">
+      {% for collection in section.settings.collection_list %}
+        <li class="portfolio-hover-item">
+          <a href="{{ collection.url }}"><h1 style="--color_list_hover: {{ section.settings.color_list_hover }}">{{ collection.title }}</h1></a>
+          <div class="portfolio-hover-image-wrapper" style="width: {{ section.settings.width_img }}%; --width_img_mobile: {{ section.settings.width_img_mobile  }}%">
+            <img
+              class="portfolio-hover-image"
+              src="{{ collection.image | img_url: '1024x1024' }}"
+              alt="Collection Preview"
+              width="1024"
+              height="1024"
+            >
+          </div>
+        </li>
+      {% endfor %}
+    </ul>    
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.portfolio-hover-item').forEach((item) => {
+    const imageWrapper = item.querySelector('.portfolio-hover-image-wrapper');
+  
+    item.addEventListener('mousemove', (e) => {
+      const rect = item.getBoundingClientRect();
+      const offsetX = e.clientX - rect.left; // Posizione del mouse rispetto al contenitore
+      const offsetY = e.clientY - rect.top;
+  
+      if (imageWrapper) {
+        const image = imageWrapper.querySelector('.portfolio-hover-image');
+        image.style.transform = `translate(${offsetX * 0.05}px, ${offsetY * 0.05}px) scale(1.1)`;
+      }
+    });
+  
+    item.addEventListener('mouseleave', () => {
+      if (imageWrapper) {
+        const image = imageWrapper.querySelector('.portfolio-hover-image');
+        image.style.transform = 'scale(1.1)'; // Torna alla posizione iniziale
+      }
+    });
+  });
+
+  
+</script>
+
+{% schema %}
+{
+  "name": "Portfolio Hover Widget",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme_1"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections",
+      "limit": 8
+    },
+    {
+      "type": "range",
+      "id": "width_img",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Width Image Backgroud",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "width_img_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Width Image Backgroud Mobile",
+      "default": 75
+    },
+    {
+      "type": "color",
+      "id": "color_list_hover",
+      "label": "Color list hover"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Portfolio Hover"
+    }
+  ]
+}
+{% endschema %}

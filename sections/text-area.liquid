@@ -1,0 +1,89 @@
+{{ 'text-area.css' | asset_url | stylesheet_tag }}
+
+<div class="text-area-container color-{{ section.settings.color_scheme }}">
+  <div class="page-width" style="align-items: {{ section.settings.align-items }};">
+    {% for block in section.blocks %}
+      {% if block.type == 'heading' %}
+        <h1>{{ block.settings.heading }}</h1>
+      {% endif %}
+      {% if block.type == 'text' %}
+        <p class="{{ block.settings.text_style }}">{{ block.settings.text }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "text-area",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme_1"
+    },
+    {
+      "type": "select",
+      "id": "align-items",
+      "label": "Align Items",
+      "default": "start",
+      "options": [
+        { "value": "start", "label": "Start" },
+        { "value": "end", "label": "End" },
+        { "value": "center", "label": "Center" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading Block",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Default Heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text Block",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Default Text",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            { "value": "body", "label": "Body" },
+            { "value": "subtitle", "label": "Subtitle" },
+            { "value": "caption-with-letter-spacing", "label": "Caption" }
+          ],
+          "default": "body",
+          "label": "Text Style"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Area",
+      "blocks": [{ "type": "heading" }, { "type": "text" }]
+    }
+  ]
+}
+{% endschema %}
