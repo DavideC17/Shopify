@@ -1,0 +1,183 @@
+{{ 'image-banner-display.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="image-banner-display-container color-{{ section.settings.color_scheme }}"
+>
+  <img
+    src="{{ section.settings.image | image_url: width: 1500 }}"
+    width="1500"
+    height="1875"
+    style="object-position: {{  section.settings.select_position  }}; opacity: {{ section.settings.image_overlay_opacity }}%"
+  >
+  <div class="page-width">
+    <div class="image-banner-display-content">
+      <div class="image-banner-display-content-text" style="align-items: {{ section.settings.select_text_align }};">
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'heading' %}
+              <h1 class="heading {{ block.settings.heading_size }}">
+                {{ block.settings.heading }}
+              </h1>
+            {% elsif block.type == 'text' %}
+              <p class="text {{ block.settings.text_style }}">
+                {{ block.settings.text }}
+              </p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      {% if section.blocks.size > 0 %}
+        <div class="image-banner-display-buttons">
+          {% for block in section.blocks %}
+            {% if block.type == 'buttons' %}
+              <a
+                href="{{ block.settings.button_link }}"
+                class="button{% if block.settings.button_style_secondary %} button--secondary{% endif %}"
+              >
+                {{ block.settings.button_label }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "image-banner-display",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "select_position",
+      "label": "Select Position",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "select_text_align",
+      "label": "Select Text Align",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "start", "label": "Start" },
+        { "value": "end", "label": "End" }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 100
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme_1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading Block",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Default Heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "H2" },
+            { "value": "h1", "label": "H1" }
+          ],
+          "default": "h1",
+          "label": "Heading Size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text Block",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Default Text",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            { "value": "body", "label": "Body" },
+            { "value": "subtitle", "label": "Subtitle" },
+            { "value": "caption-with-letter-spacing", "label": "Caption" }
+          ],
+          "default": "body",
+          "label": "Text Style"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons Block",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "Secondary Button Style"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner Display",
+      "blocks": [{ "type": "heading" }, { "type": "text" }, { "type": "buttons" }]
+    }
+  ]
+}
+{% endschema %}

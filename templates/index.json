@@ -1,0 +1,235 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_display_kqb8bU": {
+      "type": "image-banner-display",
+      "blocks": {
+        "heading_GmcJwF": {
+          "type": "heading",
+          "settings": {
+            "heading": "IMAGE BANNER",
+            "heading_size": "h1"
+          }
+        },
+        "text_qM3WUU": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_EBJkE8": {
+          "type": "buttons",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GmcJwF",
+        "text_qM3WUU",
+        "buttons_EBJkE8"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/drive-banner.jpg",
+        "select_position": "center",
+        "select_text_align": "start",
+        "image_overlay_opacity": 100,
+        "color_scheme": ""
+      }
+    },
+    "text_area_FqzbyC": {
+      "type": "text-area",
+      "blocks": {
+        "heading_UQnKRC": {
+          "type": "heading",
+          "settings": {
+            "heading": "DELIVERING HIGH-QUALITY FITNESS AND WELLNESS SOLUTIONS AT A PRICE EVERYONE CAN AFFORD."
+          }
+        },
+        "text_dR7Y9Y": {
+          "type": "text",
+          "settings": {
+            "text": "Fitify is a gym where you can be yourself and give your best. Our membership includes both digital and in-club programs designed to help you reach your fitness goals. Explore all our offerings below.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UQnKRC",
+        "text_dR7Y9Y"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "align-items": "start"
+      }
+    },
+    "portfolio_collection_hover_widget_8y6qWz": {
+      "type": "portfolio-collection-hover-widget",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "collection_list": [
+          "automated-collection",
+          "frontpage",
+          "hydrogen"
+        ],
+        "width_img": 25,
+        "width_img_mobile": 75,
+        "color_list_hover": "#d93611"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "collage": {
+      "type": "collage",
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "product",
+        "collection-1"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_display_kqb8bU",
+    "text_area_FqzbyC",
+    "portfolio_collection_hover_widget_8y6qWz",
+    "featured_collection",
+    "collage",
+    "video",
+    "multicolumn"
+  ]
+}
