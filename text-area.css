@@ -1,0 +1,38 @@
+
+.text-area-container {
+    min-height: 60vh;
+    padding: 104px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-area-container > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.text-area-container h1{
+    margin-top: 0;
+}
+
+.text-area-container p{
+    margin-top: 0;
+}
+
+@media (min-width: 768px) { /* Adatta la larghezza a quella di un tablet */
+    .text-area-container > div {
+        flex-wrap: nowrap;
+    }
+
+    .text-area-container h1{
+        margin-right: 74px;
+        max-width: 60%;
+    }
+
+    .text-area-container p{
+        max-width: 40%;
+    }
+}

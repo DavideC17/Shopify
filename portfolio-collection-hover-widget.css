@@ -1,0 +1,112 @@
+/* Sezione del widget */
+.portfolio-hover-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Contenitore principale */
+.portfolio-hover-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 20px;
+}
+
+/* Lista verticale */
+.portfolio-hover-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Singolo elemento della lista */
+.portfolio-hover-item {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  overflow: hidden; /* Per evitare che elementi interni vadano fuori dal bordo */
+}
+
+/* Stile del link */
+.portfolio-hover-item a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Font del titolo */
+.portfolio-hover-item a h1 {
+  margin: 0;
+  font-size: 3em;
+  font-weight: 900; /* Grassetto pesante */
+}
+
+.portfolio-hover-item a:hover h1 {
+  color: var(--color_list_hover);
+}
+
+
+/* Contenitore dell'immagine */
+.portfolio-hover-image-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* Centra l'immagine rispetto all'elemento */
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  pointer-events: none; /* Impedisce l'interazione con il mouse */
+  opacity: 0; /* Invisibile di default */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Aggiungi transizione */
+  z-index: -1; /* L'immagine deve stare sotto il testo */
+}
+
+/* Stile dell'immagine */
+.portfolio-hover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adatta l'immagine al contenitore */
+  transform: scale(1.1); /* Leggermente ingrandita di default */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Aggiungi animazione */
+}
+
+/* Mostra l'immagine al passaggio del mouse sull'elemento */
+.portfolio-hover-item:hover .portfolio-hover-image-wrapper {
+  opacity: 1; /* Rendi visibile l'immagine */
+}
+
+/* Animazione entrata */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .portfolio-hover-item a h1 {
+    font-size: 2rem;
+  }
+
+  .portfolio-hover-image-wrapper {
+    width: var(--width_img_mobile) !important;
+  }
+}
